@@ -6,7 +6,7 @@ RUN set -x \
     && chmod +x /usr/local/bin/* \
     && apk update \
     && apk upgrade \
-    && apk-install ca-certificates openssl \
+    && apk-install ca-certificates openssl curl tar xz libressl \
     && update-ca-certificates \
     && rm -rf /var/cache/apk/* \
     && find /var/lib/apk/ -mindepth 1 -delete \
