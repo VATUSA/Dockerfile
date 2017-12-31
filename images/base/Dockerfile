@@ -3,6 +3,7 @@ FROM alpine:3.7
 COPY base/ /
 
 RUN set -x \
+    && mkdir /entrypoint.d \
     && chmod +x /usr/local/bin/* \
     && apk update \
     && apk upgrade \
@@ -19,3 +20,5 @@ RUN set -x \
 RUN GOREPLACE_VERSION=1.1.2 \
     && wget -O /usr/local/bin/go-replace https://github.com/webdevops/go-replace/releases/download/$GOREPLACE_VERSION/gr-64-linux \
     && chmod +x /usr/local/bin/go-replace
+
+CMD ["/bin/sh","/usr/local/bin/start.sh"]
