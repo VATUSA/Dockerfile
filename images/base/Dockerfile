@@ -2,6 +2,8 @@ FROM alpine:3.7
 
 COPY base/ /
 
+ENV TIMEZONE America/Chicago
+
 RUN set -x \
     && mkdir /entrypoint.d \
     && chmod +x /usr/local/bin/* \
@@ -15,7 +17,10 @@ RUN set -x \
     && rm -rf /root/.cache \
     && apk-install wget curl sed tzdata \
     && docker-run-bootstrap \
-    && docker-image-cleanup
+    && docker-image-cleanup \
+    apk add --update tzdata && \
+    cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
+    echo "${TIMEZONE}" > /etc/timezone && \
 
 RUN GOREPLACE_VERSION=1.1.2 \
     && wget -O /usr/local/bin/go-replace https://github.com/webdevops/go-replace/releases/download/$GOREPLACE_VERSION/gr-64-linux \
