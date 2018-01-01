@@ -14,11 +14,11 @@ RUN apk update && \
 	php7-phar@php \
 	php7-gmp@php \
 	php7-zlib@php \
-	php7-tokenizer@php \
 	php7-openssl@php \
 	php7-session@php \
 	php7-ctype@php \
 	php7-mbstring@php \
-	php7-fpm@php
+	php7-fpm@php \
+  && ln -s /usr/bin/php7 /usr/bin/php
 
 COPY ./vatusa.ini /usr/local/etc/php/conf.d
