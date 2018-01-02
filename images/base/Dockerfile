@@ -9,7 +9,7 @@ RUN set -x \
     && chmod +x /usr/local/bin/* \
     && apk update \
     && apk upgrade \
-    && apk-install ca-certificates openssl curl tar xz libressl \
+    && apk-install ca-certificates openssl curl \
     && update-ca-certificates \
     && rm -rf /var/cache/apk/* \
     && find /var/lib/apk/ -mindepth 1 -delete \
@@ -20,7 +20,7 @@ RUN set -x \
     && docker-image-cleanup \
     apk add --update tzdata && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
-    echo "${TIMEZONE}" > /etc/timezone && \
+    echo "${TIMEZONE}" > /etc/timezone
 
 RUN GOREPLACE_VERSION=1.1.2 \
     && wget -O /usr/local/bin/go-replace https://github.com/webdevops/go-replace/releases/download/$GOREPLACE_VERSION/gr-64-linux \
