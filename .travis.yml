@@ -6,12 +6,14 @@ services:
 - docker
 script:
 - docker build -t vatusa/base:latest images/base
+- docker build -t vatusa/nginx:latest images/nginx
 - docker build -t vatusa/php:latest images/php
 - docker build -t vatusa/php-nginx:latest images/php-nginx
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then
   docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
   docker push vatusa/base:latest;
+  docker push vatusa/nginx:latest;
   docker push vatusa/php:latest;
   docker push vatusa/php-nginx:latest;
   fi
