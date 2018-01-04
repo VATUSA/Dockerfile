@@ -1,4 +1,4 @@
-FROM nginx:1-alpine
+FROM vatusa/base
 
 RUN apk-install nginx
 
