@@ -6,6 +6,7 @@ RUN apk update && \
   apk-install php7-pdo \
       php7-pdo_mysql \
       php7-curl \
+      php7-dom \
       php7-xml \
       php7-json \
       php7-phar \
