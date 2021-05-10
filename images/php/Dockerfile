@@ -19,6 +19,7 @@ RUN apk update && \
       php7-ctype \
       php7-mbstring \
       php7-fpm \
+      php7-fileinfo \
       php7
 
 COPY ./vatusa.ini /usr/local/etc/php/conf.d
