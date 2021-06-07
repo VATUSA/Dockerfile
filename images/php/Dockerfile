@@ -8,6 +8,7 @@ RUN apk update && \
       php7-curl \
       php7-dom \
       php7-xml \
+      php7-xmlwriter \
       php7-simplexml \
       php7-json \
       php7-phar \
