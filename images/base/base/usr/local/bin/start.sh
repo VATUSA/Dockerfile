@@ -18,10 +18,11 @@ function createDockerStdoutStderr() {
 
 function runEntrypoints() {
   if [[ -d "$1" ]]; then
-    for FILE in "$1"/*.sh; do
+    for FILE in "$1"/*.sh
+    do
       echo "-> Executing ${FILE}"
       # run custom scripts, only once
-      . "$FILE"
+      sh "$FILE"
     done
   fi
 }
