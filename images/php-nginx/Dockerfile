@@ -1,5 +1,5 @@
 FROM vatusa/php
 
-RUN apk-install nginx supervisor
+RUN apk add nginx supervisor
 
 COPY ./base /
