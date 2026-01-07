@@ -22,6 +22,7 @@ RUN apk update && \
       php83-fpm \
       php83-fileinfo \
       php83-pecl-redis \
+      php83-iconv \
       php83
 
 RUN ln -s /usr/bin/php83 /usr/bin/php
